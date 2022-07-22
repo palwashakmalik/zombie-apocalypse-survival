@@ -1,5 +1,7 @@
 {
   "name": "zombie-apocalypse-survival",
   "private": true,
-  "dependencies": {}
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
 }
