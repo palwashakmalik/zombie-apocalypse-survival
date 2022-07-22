@@ -15,24 +15,4 @@
 //= require_self
 
 @import "bootstrap";
- .home_video {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  object-fit: cover;
-  top: 0;
-  z-index: -2;
-
- }
-
- h1.home {
-
-   color: white;
- }
-
-.homewrapper{
-height:100vh;
-margin:auto;
-width:50%;
-padding: 30% 0;
- }
+ @import "home"
