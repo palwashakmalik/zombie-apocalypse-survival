@@ -1,20 +1,13 @@
 # frozen_string_literal: true
 
 class RegistrationsController < Devise::RegistrationsController
-  def new
-    super
-    @user.locations.new
- end
-
- def create
-    super
-    @user.items.build
-    @user.locations.build
+  def edit
+    @location = resource.locations.new
+    render :edit
   end
 
-  def update
-    super
-    @user.locations.build(params[:locations])
+  def update_resource(resource, params)
+    resource.update(params)
   end
 
 end

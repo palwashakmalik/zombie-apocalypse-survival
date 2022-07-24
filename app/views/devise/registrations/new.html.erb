@@ -7,7 +7,7 @@
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
               <h2>Sign up</h2>
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= nested_form_for([resource_name, resource.with_item_and_location], url: registration_path(resource_name)) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
                 <div class="field">
                   <%= f.label :email %><br />
@@ -49,16 +49,12 @@
                   <% end %>
                   <%= link_to_add_fields "Add Items", f, :items %>
                 </fieldset>
-
                 <fieldset>
                   <legend>Location:</legend>
                   <%= f.fields_for :locations do |locations_form| %>
                     <%= render "location_fields", f: locations_form %>
                   <% end %>
-
-                  <%= link_to_add_fields "Add Location", f, :locations %>
                 </fieldset>
-
                 <div class="actions">
                   <%= f.submit "Sign up" %>
                 </div>
