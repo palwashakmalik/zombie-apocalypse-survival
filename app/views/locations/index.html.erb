@@ -1,3 +1,17 @@
-
-<h3>Location History</h3>
-<%= render @locations %>
+<div class="content">
+  <div class="container">
+    <h2 class="mb-5 text-center">Location History</h2>
+    <div class="table-responsive custom-table-responsive">
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th scope="col">Longitude</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Updated at</th>
+          </tr>
+        </thead>
+        <%= render @locations %>
+      </table>
+    </div>
+  </div>
+</div>
