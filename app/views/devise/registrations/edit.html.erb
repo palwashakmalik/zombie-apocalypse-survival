@@ -5,11 +5,10 @@
     <%= f.file_field :avatar %>
   </div>
   <fieldset>
-    <legend>Location:</legend>
-    <%= f.fields_for :locations do |locations_form| %>
+    <legend>New Location:</legend>
+    <%= f.fields_for 'locations_attributes[]', @location do |locations_form| %>
       <%= render "location_fields", f: locations_form %>
     <% end %>
-    <%= link_to_add_fields "Add Location", f, :locations %>
   </fieldset>
   <div class="actions">
     <%= f.submit "Update" %>

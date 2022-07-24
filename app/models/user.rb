@@ -8,4 +8,9 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :locations
 
   enum gender: { female: 1, male: 2, other: 3 }
+  def with_item_and_location
+    items.new if locations.blank?
+    locations.new if locations.blank?
+    self
+  end
 end
