@@ -3,11 +3,10 @@
     <% if user.avatar_attachment.present? %>
       <%= image_tag( user.avatar ,class: "card-img-top") %>
     <%end%>
-    <%= link_to "Inventory", user_path(user) %>
     <div class="card-body">
       <h5 class="card-title"><%=user.name%></h5>
       <h6 class="card-title"><%=user.locations.last.longitude%> , <%=user.locations.last.latitude%></h6>
-      <%= user.get_upvotes.size  %>
+      <% if !current_user.infected? %>
       <% if !current_user.voted_up_on? user %>
         <%= link_to like_user_path(user), class: "like",method: :put do%>
           <button type="button" class ="btn btn-info" arial-label ="Left Align">
@@ -29,6 +28,9 @@
           </button>
         <% end %>
       <% end%>
+
+    <%= link_to "Inventory", user_path(user) %>
+      <%end %>
     </div>
   </div>
 <%end%>

@@ -7,12 +7,13 @@
     <%end%>
  <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
 
-  <% if  true%>
-    <%= link_to "Items", items_path  %>
     <%= link_to "Locations", locations_path  %>
+  <% if  !current_user.infected?%>
+    <%= link_to "Items", items_path  %>
     <%= link_to "Settings", edit_user_registration_path  %>
-    <div class="d-flex" ><%= render @users%></div>
      <%end%>
+
+    <div class="d-flex" ><%= render @users%></div>
   <%else%>
     <div >
       <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-secondary"  %>
