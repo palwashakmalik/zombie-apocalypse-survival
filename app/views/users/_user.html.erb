@@ -1,12 +1,34 @@
-<div class="card" style="width: 18rem;">
- <% if user.avatar_attachment.present? %>
+<%if !user.infected?  %>
+  <div class="card" style="width: 18rem;">
+    <% if user.avatar_attachment.present? %>
       <%= image_tag( user.avatar ,class: "card-img-top") %>
     <%end%>
+    <%= link_to "Inventory", user_path(user) %>
     <div class="card-body">
-
-    <h5 class="card-title"><%=user.name%></h5>
-<h6 class="card-title"><%=user.locations.last.longitude%> , <%=user.locations.last.latitude%></h6>
-
-     <a href="#" class="btn btn-primary">Flag</a>
+      <h5 class="card-title"><%=user.name%></h5>
+      <h6 class="card-title"><%=user.locations.last.longitude%> , <%=user.locations.last.latitude%></h6>
+      <%= user.get_upvotes.size  %>
+      <% if !current_user.voted_up_on? user %>
+        <%= link_to like_user_path(user), class: "like",method: :put do%>
+          <button type="button" class ="btn btn-info" arial-label ="Left Align">
+            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center " aria-hidden="true">
+            </span>
+            <span class="badge">
+              Flag
+            </span>
+          </button>
+        <% end %>
+      <% else %>
+        <%= link_to unlike_user_path(user), class: "like",method: :put do%>
+          <button type="button" class ="btn btn-info" arial-label ="Left Align">
+            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center " aria-hidden="true">
+            </span>
+            <span class="badge">
+              Unflag
+            </span>
+          </button>
+        <% end %>
+      <% end%>
+    </div>
   </div>
-</div>
+<%end%>
