@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     byebug
     if @user.get_upvotes.size == 5
       @user.infected = true
+      @user.save
     end
     redirect_to root_path
   end
