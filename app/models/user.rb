@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :items, inverse_of: :user
   accepts_nested_attributes_for :items, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :locations
-
+  acts_as_votable
+  acts_as_voter
   enum gender: { female: 1, male: 2, other: 3 }
   def with_item_and_location
     items.new if locations.blank?
