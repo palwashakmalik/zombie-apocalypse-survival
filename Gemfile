@@ -68,13 +68,12 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
 end
-<<<<<<< HEAD
 gem 'nested_form'
 gem "jsonb_accessor"
 gem 'acts_as_votable', '~> 0.10.0'
-=======
+
 gem 'cocoon'
->>>>>>> 4f60fa3 (fixed pr issues)
+
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.5'
