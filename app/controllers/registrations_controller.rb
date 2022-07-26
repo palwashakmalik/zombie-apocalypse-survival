@@ -9,5 +9,4 @@ class RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update(params)
   end
-
 end
