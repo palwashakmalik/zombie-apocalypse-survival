@@ -45,9 +45,9 @@
                 <fieldset>
                   <legend>Addresses:</legend>
                   <%= f.fields_for :items do |items_form| %>
-                    <%= render "item_fields", f: items_form %>
+                    <%= render "item_fields", :f => items_form %>
                   <% end %>
-                  <%= link_to_add_fields "Add Items", f, :items %>
+                  <%= link_to_add_association "Add Items", f, :items %>
                 </fieldset>
                 <fieldset>
                   <legend>Location:</legend>
