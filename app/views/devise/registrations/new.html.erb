@@ -43,11 +43,7 @@
                   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
                 </div>
                 <fieldset>
-<<<<<<< HEAD
                   <legend>Items:</legend>
-=======
-                  <legend>Addresses:</legend>
->>>>>>> 6b37df4 (created registration new file)
                   <%= f.fields_for :items do |items_form| %>
                     <%= render "item_fields", :f => items_form %>
                   <% end %>
@@ -55,13 +51,8 @@
                 </fieldset>
                 <fieldset>
                   <legend>Location:</legend>
-<<<<<<< HEAD
                   <%= f.fields_for :location_history do |locations_field| %>
                     <%= render "location_fields", :f =>locations_field%>
-=======
-                  <%= f.fields_for :locations do |locations_form| %>
-                    <%= render "location_fields", f: locations_form %>
->>>>>>> 6b37df4 (created registration new file)
                   <% end %>
                 </fieldset>
                 <div class="actions">
