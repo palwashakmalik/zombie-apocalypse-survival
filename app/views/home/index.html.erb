@@ -1,0 +1,12 @@
+<%= video_tag "zoombie.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+<div class="homewrapper">
+  <h1 class="home " > Zoombies Apocalypse</h1>
+  <% if current_user %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
+  <%else%>
+    <div >
+      <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-secondary"  %>
+      <%= link_to "Sign In", new_user_session_path, :class => "btn btn-warning" %>
+    </div>
+  <%end %>
+</div>
