@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2022_07_26_070257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -86,9 +86,6 @@ ActiveRecord::Schema.define(version: 2022_07_26_070257) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-
   add_foreign_key "items", "users"
   add_foreign_key "locations", "users"
 end

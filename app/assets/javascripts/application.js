@@ -17,5 +17,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-import('./addFields')
-import('./removeFields')
+//= require cocoon

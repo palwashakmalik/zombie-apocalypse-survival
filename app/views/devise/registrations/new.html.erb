@@ -32,7 +32,6 @@
                 <%= f.radio_button(:gender, "other") %>
                 <%= label(:gender, "Others") %>
                 <div class="field">
-<<<<<<< HEAD
                   <%= f.label :name %><br />
                   <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
                 </div>
@@ -45,8 +44,6 @@
                   <%= f.file_field :image, autofocus: true, autocomplete: "Image" %>
                 </div>
                 <div class="field">
-=======
->>>>>>> e1e4813 (formatted home.scss file)
                   <%= f.label :password %>
                   <% if @minimum_password_length %>
                     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -58,32 +55,24 @@
                   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
                 </div>
                 <fieldset>
-                  <legend>Addresses:</legend>
+                  <legend>Items:</legend>
                   <%= f.fields_for :items do |items_form| %>
-                    <%= render "item_fields", f: items_form %>
+                    <%= render "item_fields", :f => items_form %>
                   <% end %>
-                  <%= link_to_add_fields "Add Items", f, :items %>
-                </fieldset>
-                <fieldset>
-                  <legend>Location:</legend>
-                  <%= f.fields_for :locations do |locations_form| %>
-                    <%= render "location_fields", f: locations_form %>
-                  <% end %>
-                </fieldset>
-                <div class="actions">
-                  <%= f.submit "Sign up" %>
-                </div>
-              <% end %>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            </div>
-            <%= render "devise/shared/links" %>
-=======
+                  <%= link_to_add_association "Add Items", f, :items %>
+                  <fieldset>
+                    <legend>Location:</legend>
+                    <%= f.fields_for :locations do |locations_form| %>
+                      <%= render "location_fields", f: locations_form %>
+                    <% end %>
+                  </fieldset>
+                  <div class="actions">
+                    <%= f.submit "Sign up" %>
+                  </div>
+                <% end %>
+              </div>
               <%= render "devise/shared/links" %>
-=======
->>>>>>> 7775594 (Sign Up page)
             </div>
->>>>>>> e1e4813 (formatted home.scss file)
           </div>
         </div>
       </div>
