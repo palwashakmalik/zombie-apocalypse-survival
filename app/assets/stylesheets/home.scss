@@ -11,19 +11,24 @@
   object-fit: cover;
   top: 0;
   z-index: -2;
- }
+}
 
  h1.home {
    color: white;
- }
+  }
+
+ .avatar {
+   height:70px;
+   width:auto;
+  }
 
 .homewrapper {
   height:100vh;
   margin:auto;
   width:50%;
   padding: 30% 0;
- }
+}
 
- .card{
+ .card {
   margin-bottom: 10px;
 }
