@@ -71,9 +71,12 @@ end
 gem 'nested_form'
 gem "jsonb_accessor"
 gem 'acts_as_votable', '~> 0.10.0'
+<<<<<<< HEAD
 
 gem 'cocoon'
 
+=======
+>>>>>>> 04ad130 (fixed issues)
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.5'
