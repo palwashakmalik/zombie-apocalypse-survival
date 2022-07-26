@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_07_29_115513) do
+=======
+ActiveRecord::Schema.define(version: 2022_07_23_150725) do
+>>>>>>> fdbdc24 (changed schema file)
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
