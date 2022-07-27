@@ -37,27 +37,16 @@ ActiveRecord::Schema.define(version: 2022_07_27_120103) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   create_table "items", force: :cascade do |t|
     t.string "item_name", default: ""
     t.integer "points", default: 0
-=======
-  create_table "items", force: :cascade do |t|
-    t.string "itemname"
-    t.integer "quantity"
-    t.integer "points"
->>>>>>> d90bbc2 (added routes)
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-<<<<<<< HEAD
-=======
->>>>>>> d567452 (cleared schema file for migrations)
-=======
+
   create_table "locations", force: :cascade do |t|
     t.integer "latitude"
     t.integer "longitude"
@@ -67,7 +56,6 @@ ActiveRecord::Schema.define(version: 2022_07_27_120103) do
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
->>>>>>> d90bbc2 (added routes)
   create_table "users", force: :cascade do |t|
     t.boolean "admin"
     t.string "email", default: "", null: false
@@ -102,8 +90,4 @@ ActiveRecord::Schema.define(version: 2022_07_27_120103) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
-<<<<<<< HEAD
-=======
-  add_foreign_key "locations", "users"
->>>>>>> d90bbc2 (added routes)
 end
