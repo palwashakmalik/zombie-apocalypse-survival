@@ -43,7 +43,7 @@
                   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
                 </div>
                 <fieldset>
-                  <legend>Addresses:</legend>
+                  <legend>Items:</legend>
                   <%= f.fields_for :items do |items_form| %>
                     <%= render "item_fields", :f => items_form %>
                   <% end %>

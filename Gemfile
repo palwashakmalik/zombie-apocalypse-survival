@@ -67,6 +67,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
 end
+gem 'cocoon'
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.5'
