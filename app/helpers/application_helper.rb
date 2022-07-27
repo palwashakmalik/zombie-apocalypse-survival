@@ -1,6 +1,7 @@
-<<<<<<< HEAD
-module ApplicationHelper; end
-=======
 module ApplicationHelper
+  def last_location(arr)
+    return arr.last if arr.kind_of?(Array)
+
+    return arr
+ end
 end
->>>>>>> 7ef9055 (Gem as_votable Used)
