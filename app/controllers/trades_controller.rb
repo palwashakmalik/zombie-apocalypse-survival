@@ -37,26 +37,6 @@ class TradesController < ApplicationController
     end
   end
 
-  def update
-    @trade.status = params[:status].to_i
-    @trade.accept if @trade.accepted?
-    @trade.save
-    redirect_to user_trades_path(current_user)
-  end
-
-  def create
-    sender_items = helpers.items_filter(params[:trade][:sender_items])
-    receiver_items = helpers.items_filter(params[:trade][:receiver_items])
-    sender_total = helpers.points_calculator(sender_items)
-    receiver_total = helpers.points_calculator(receiver_items)
-    trade_items = sender_items + receiver_items
-    if receiver_total == sender_total
-      @trade = Trade.create(status: 1, receiver_id: params[:trade][:receiver_id],
-                            sender_id: params[:trade][:sender_id], trade_items_attributes: trade_items.to_h)
-      redirect_to user_trades_path(current_user)
-    end
-  end
-
   def set_user
     @user = User.find(params[:user_id])
   end
