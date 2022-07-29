@@ -14,3 +14,7 @@
     </div>
   </div>
 </div>
+<%if !@user.eql?(current_user)%>
+ <%= link_to "Trade",new_user_trade_path(@user), :class => "btn btn-secondary"  %>
+
+<%end%>

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_07_27_120103) do
+=======
+ActiveRecord::Schema.define(version: 2022_07_29_055540) do
+>>>>>>> 684f789 (created models and views for trading)
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +47,26 @@ ActiveRecord::Schema.define(version: 2022_07_27_120103) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "trade_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "trade_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_trade_items_on_item_id"
+    t.index ["trade_id"], name: "index_trade_items_on_trade_id"
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_trades_on_receiver_id"
+    t.index ["sender_id"], name: "index_trades_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,4 +103,8 @@ ActiveRecord::Schema.define(version: 2022_07_27_120103) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
+  add_foreign_key "trade_items", "items"
+  add_foreign_key "trade_items", "trades"
+  add_foreign_key "trades", "users", column: "receiver_id"
+  add_foreign_key "trades", "users", column: "sender_id"
 end

@@ -1,0 +1,26 @@
+<%= form_with  model: [@user, @trade]  do |f| %>
+
+  <% @sender_items.all.each do |item| %>
+    <%= check_box_tag(:item) %>
+    <%= item.itemname %>
+    <%= item.points%>
+    <fieldset>
+      <%= f.fields_for :trade_items do |items_form| %>
+        <%= render "trade_item_fields", :f => items_form %>
+      <% end %>
+    </fieldset>
+  <% end %>
+  <% @receiver_items.all.each do |item| %>
+    <%= check_box_tag(:item) %>
+    <%= item.itemname %>
+    <%= item.points%>
+    <fieldset>
+      <%= f.fields_for :trade_items do |items_form| %>
+        <%= render "trade_item_fields", :f => items_form %>
+      <% end %>
+    </fieldset>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Proceed" %>
+  </div>
+<% end %>
