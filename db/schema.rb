@@ -45,26 +45,6 @@ ActiveRecord::Schema.define(version: 2022_07_29_115513) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "trade_items", force: :cascade do |t|
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "trade_id"
-    t.bigint "item_id"
-    t.index ["item_id"], name: "index_trade_items_on_item_id"
-    t.index ["trade_id"], name: "index_trade_items_on_trade_id"
-  end
-
-  create_table "trades", force: :cascade do |t|
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "sender_id"
-    t.bigint "receiver_id"
-    t.index ["receiver_id"], name: "index_trades_on_receiver_id"
-    t.index ["sender_id"], name: "index_trades_on_sender_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.boolean "admin"
     t.string "email", default: "", null: false
@@ -75,32 +55,13 @@ ActiveRecord::Schema.define(version: 2022_07_29_115513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.integer "age"
-    t.integer "gender"
+    t.integer "age", null: false
+    t.integer "gender", null: false
     t.boolean "infected", default: false
-    t.jsonb "locationhistory"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", id: :serial, force: :cascade do |t|
-    t.string "votable_type"
-    t.integer "votable_id"
-    t.string "voter_type"
-    t.integer "voter_id"
-    t.boolean "vote_flag"
-    t.string "vote_scope"
-    t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
-  add_foreign_key "trade_items", "items"
-  add_foreign_key "trade_items", "trades"
-  add_foreign_key "trades", "users", column: "receiver_id"
-  add_foreign_key "trades", "users", column: "sender_id"
 end

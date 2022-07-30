@@ -4,6 +4,6 @@ class RenameItemnameToItemNameInItems < ActiveRecord::Migration[5.2]
   end
 
   def down
-    rename_column :items, :itemname, :item_name
+    rename_column :items, :item_name, :itemname
   end
 end
