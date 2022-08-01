@@ -76,6 +76,7 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.5'
 
 
+
 gem 'cloudinary'
 gem "font-awesome-sass", "~> 6.1.2"
 gem 'pundit'
