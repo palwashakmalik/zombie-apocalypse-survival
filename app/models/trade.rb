@@ -5,4 +5,17 @@ class Trade < ApplicationRecord
   has_many :items, through: :trade_items
   accepts_nested_attributes_for :trade_items, allow_destroy: true, reject_if: :all_blank
 
+  enum status: { pending: 1, rejected: 2, cancelled: 3, accepted: 4 }
+
+  def accept
+    trade_items.each do |trade_item|
+      item = Item.find(trade_item.item_id)
+      if item.user_id == receiver_id
+        item.update!(user_id: sender_id)
+      else
+        item.update!(user_id: receiver_id)
+      end
+    end
+    accepted!
+  end
 end

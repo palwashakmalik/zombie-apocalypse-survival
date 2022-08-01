@@ -8,8 +8,9 @@ Rails.application.routes.draw do
       put 'like' => 'users#upvote'
       put 'unlike' => 'users#downvote'
     end
-    resources :trades
+    resources :trades, except: :update
     resources :trade_items
     resources :items
   end
+  resources :trades, only: :update
 end
