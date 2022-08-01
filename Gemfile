@@ -74,7 +74,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.5'
+
 gem 'cloudinary'
 gem "font-awesome-sass", "~> 6.1.2"
+>>>>>>> a08f479 (Trade Functionality)
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
