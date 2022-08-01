@@ -67,7 +67,12 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
 end
+<<<<<<< HEAD
 gem 'cocoon'
+=======
+gem 'nested_form'
+gem 'acts_as_votable', '~> 0.10.0'
+>>>>>>> 7ef9055 (Gem as_votable Used)
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.5'
