@@ -5,7 +5,12 @@
     <%end%>
     <div class="card-body">
       <h5 class="card-title"><%=user.name%></h5>
-      <h6 class="card-title"><%=user.locations.last.longitude%> , <%=user.locations.last.latitude%></h6>
+      <h6 class="card-title">
+      <%if user.locationhistory%>
+      <%=last_location(user.locationhistory)["longitude"]%>
+      <%=last_location(user.locationhistory)["latitude"]%>
+      <%end%>
+      </h6>
       <% if !current_user.infected? %>
         <% if !current_user.voted_up_on? user %>
           <%= link_to like_user_path(user), class: "like",method: :put do%>

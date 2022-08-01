@@ -54,16 +54,11 @@ ActiveRecord::Schema.define(version: 2022_07_29_115513) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.string "name", default: ""
     t.integer "age", default: 18
     t.integer "gender", default: 1
-=======
-    t.string "name"
-    t.integer "age"
-    t.integer "gender"
->>>>>>> d8d9f23 (Gem as_votable Used)
     t.boolean "infected", default: false
+    t.jsonb "locationhistory"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
