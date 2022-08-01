@@ -1,10 +1,7 @@
 module ApplicationHelper
-  def image_helper(image)
-    image&.attached? ? image : 'default.jpeg'
-  end
-  def last_location(arr)
-    return arr.last if arr.kind_of?(Array)
+  def location_array(arr)
+    return arr if arr.kind_of?(Array)
 
-    return arr
- end
+    return [arr]
+  end
 end

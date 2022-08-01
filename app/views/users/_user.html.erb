@@ -6,10 +6,10 @@
     <div class="card-body">
       <h5 class="card-title"><%=user.name%></h5>
       <h6 class="card-title">
-      <%if user.locationhistory%>
-      <%=last_location(user.locationhistory)["longitude"]%>
-      <%=last_location(user.locationhistory)["latitude"]%>
-      <%end%>
+        <%if user.locationhistory%>
+          <%=location_array(user.locationhistory).last['longitude']%>
+          <%=location_array(user.locationhistory).last['latitude']%>
+        <%end%>
       </h6>
       <% if !current_user.infected? %>
         <% if !current_user.voted_up_on? user %>

@@ -11,7 +11,9 @@
             <th scope="col">Updated at</th>
           </tr>
         </thead>
-        <%= render @location %>
+        <% location_array(@locationhistory).each do |location| %>
+          <%= render 'location', :location => location %>
+        <% end %>
       </table>
     </div>
   </div>
