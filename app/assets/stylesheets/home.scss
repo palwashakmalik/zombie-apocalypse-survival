@@ -3,9 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .home_video {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
   top: 0;
   z-index: -2;
