@@ -2,6 +2,8 @@
 <div class="homewrapper">
   <h1 class="home " > Zoombies Apocalypse</h1>
   <% if current_user %>
+      <%= image_tag(image_helper(current_user.avatar) ,class: "rounded-circle avatar") %>
+    <%= link_to "Settings", edit_user_registration_path  %>
     <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
   <%else%>
     <div >
