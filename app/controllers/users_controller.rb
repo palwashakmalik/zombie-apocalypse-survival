@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   def upvote
     @user = User.find(params[:id])
     @user.upvote_from current_user if @user.get_upvotes.size < 5
-    byebug
     if @user.get_upvotes.size == 5
       @user.infected = true
       @user.save
     end
     redirect_to root_path
   end
+
   def show
     @items = @user.items
   end
@@ -30,6 +30,4 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:id)
   end
-
-
 end
