@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  scope :infected, -> { where(infected: 1).count.to_f }
+  scope :not_infected, -> { where(infected: 0).count.to_f }
   devise :database_authenticatable, :registerable,
          :validatable, :rememberable
 
