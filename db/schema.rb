@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_07_27_120103) do
 =======
 ActiveRecord::Schema.define(version: 2022_07_29_055540) do
 >>>>>>> 684f789 (created models and views for trading)
+=======
+ActiveRecord::Schema.define(version: 2022_07_30_225857) do
+>>>>>>> 0ba4880 (Trade Functionality)
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +64,7 @@ ActiveRecord::Schema.define(version: 2022_07_29_055540) do
   end
 
   create_table "trades", force: :cascade do |t|
-    t.string "status"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "sender_id"

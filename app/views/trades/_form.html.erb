@@ -1,26 +1,63 @@
-<%= form_with  model: [@user, @trade]  do |f| %>
-
-  <% @sender_items.all.each do |item| %>
-    <%= check_box_tag(:item) %>
-    <%= item.itemname %>
-    <%= item.points%>
-    <fieldset>
-      <%= f.fields_for :trade_items do |items_form| %>
-        <%= render "trade_item_fields", :f => items_form %>
-      <% end %>
-    </fieldset>
-  <% end %>
-  <% @receiver_items.all.each do |item| %>
-    <%= check_box_tag(:item) %>
-    <%= item.itemname %>
-    <%= item.points%>
-    <fieldset>
-      <%= f.fields_for :trade_items do |items_form| %>
-        <%= render "trade_item_fields", :f => items_form %>
-      <% end %>
-    </fieldset>
-  <% end %>
-  <div class="actions">
-    <%= f.submit "Proceed" %>
+<%= nested_form_for([@user, @trade]) do |f| %>
+  <div class="row">
+    <div class="  col ">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">item</th>
+            <th scope="col">points</th>
+            <th scope="col">quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sender_items.each do |item| %>
+            <tr>
+              <%= f.fields_for :sender_items, nil, index: item.id  do |f| %>
+                <td> <%= f.check_box :item_id, { checked: false }, item.id, nil  %> </td>
+                <td> <%= item.itemname %> </td>
+                <td> <%= item.points %> </td>
+                <td> <%= f.text_field :quantity %> </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">item</th>
+            <th scope="col">points</th>
+            <th scope="col">quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @receiver_items.each do |item| %>
+            <tr>
+              <%= f.fields_for :receiver_items, nil, index: item.id  do |f| %>
+                <td> <%= f.check_box :item_id, { checked: false }, item.id, nil  %> </td>
+                <td> <%= item.itemname %> </td>
+                <td> <%= item.points %> </td>
+                <td> <%= f.number_field :quantity %> </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= f.hidden_field  :receiver_id%>
+  <%= f.hidden_field  :sender_id%>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="actions  ">
+          <%= f.submit "Proceed" %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

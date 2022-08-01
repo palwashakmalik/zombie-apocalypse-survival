@@ -15,6 +15,11 @@
   </div>
 </div>
 <%if !@user.eql?(current_user)%>
- <%= link_to "Trade",new_user_trade_path(@user), :class => "btn btn-secondary"  %>
-
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <%= link_to "Trade",new_user_trade_path(@user), :class => "btn btn-secondary  "  %>
+      </div>
+    </div>
+  </div>
 <%end%>

@@ -103,6 +103,8 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.5)
+    font-awesome-sass (6.1.2)
+      sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     haml (5.2.2)
@@ -336,6 +338,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   devise
+  font-awesome-sass (~> 6.1.2)
   jbuilder (~> 2.5)
   jquery-rails
   jsonb_accessor
