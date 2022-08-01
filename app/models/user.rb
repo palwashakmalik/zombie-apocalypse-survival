@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  scope :not_user, ->(current_user) { where.not(id: current_user.id) }
+  scope :all_users_accept_current, ->(current_user) { where.not(id: current_user.id) }
 
   def with_item
     items.new if items.blank?

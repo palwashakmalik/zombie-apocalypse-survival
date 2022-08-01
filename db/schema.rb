@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2022_07_29_115513) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "item_name"
-    t.integer "points"
+    t.string "item_name", default: ""
+    t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 2022_07_29_115513) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "age", null: false
-    t.integer "gender", null: false
+    t.string "name", default: ""
+    t.integer "age", default: 18
+    t.integer "gender", default: 1
     t.boolean "infected", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
