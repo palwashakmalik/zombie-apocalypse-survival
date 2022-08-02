@@ -33,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def average_resources_values
-    total_count =  all_survivors_count
+    total_count = all_survivors_count
     Item.group(:itemname).count.values.map! { |n| (n/total_count).round(3) }
   end
 
