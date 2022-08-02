@@ -73,6 +73,7 @@ gem "jsonb_accessor"
 gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'cocoon'
+require 'cloudinary'
 
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
