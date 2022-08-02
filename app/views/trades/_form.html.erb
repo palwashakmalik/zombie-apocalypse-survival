@@ -15,7 +15,7 @@
             <tr>
               <%= f.fields_for :sender_items, nil, index: item.id  do |f| %>
                 <td> <%= f.check_box :item_id, { checked: false }, item.id, nil  %> </td>
-                <td> <%= item.itemname %> </td>
+                <td> <%= item.item_name %> </td>
                 <td> <%= item.points %> </td>
                 <td> <%= f.text_field :quantity %> </td>
               <% end %>
@@ -39,7 +39,7 @@
             <tr>
               <%= f.fields_for :receiver_items, nil, index: item.id  do |f| %>
                 <td> <%= f.check_box :item_id, { checked: false }, item.id, nil  %> </td>
-                <td> <%= item.itemname %> </td>
+                <td> <%= item.item_name %> </td>
                 <td> <%= item.points %> </td>
                 <td> <%= f.number_field :quantity %> </td>
               <% end %>
