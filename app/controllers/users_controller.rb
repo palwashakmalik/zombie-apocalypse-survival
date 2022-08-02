@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user
 
   def upvote
-    @user = User.find(params[:id])
+    @user = find_user(params[:id])
     @user.upvote_from current_user if @user.get_upvotes.size < 5
     if @user.get_upvotes.size == 5
       @user.infected = true
