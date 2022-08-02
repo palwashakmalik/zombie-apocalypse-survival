@@ -17,5 +17,6 @@ class User < ApplicationRecord
 
   def with_item
     items.new if items.blank?
+    self
   end
 end

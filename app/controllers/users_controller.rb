@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :find_user
 
   def upvote
-    @user = find_user(params[:id])
     @user.upvote_from current_user if @user.get_upvotes.size < 5
     if @user.get_upvotes.size == 5
       @user.infected = true
@@ -16,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def downvote
-    @user = User.find(params[:id])
     @user.downvote_from current_user unless @user.infected
     redirect_to root_path
   end
