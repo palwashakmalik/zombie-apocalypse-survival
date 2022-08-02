@@ -3,11 +3,11 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
-    if @user.locationhistory
+    if @user.location_history
       locations = []
-      locations.push(@user.locationhistory)
-      locations.push(params[:locationhistory])
-      params[:locationhistory] = locations.flatten
+      locations.push(@user.location_history)
+      locations.push(params[:location_history])
+      params[:location_history] = locations.flatten
     end
     resource.update(params)
   end

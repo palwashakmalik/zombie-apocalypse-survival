@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
   def index
-    @locationhistory = current_user.locationhistory
+    @location_history = current_user.location_history
   end
 end

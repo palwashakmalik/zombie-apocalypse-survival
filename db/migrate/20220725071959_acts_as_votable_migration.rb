@@ -5,9 +5,9 @@ class ActsAsVotableMigration < ActiveRecord::Migration[4.2]
       t.references :votable, :polymorphic => true
       t.references :voter, :polymorphic => true
 
-      t.boolean :vote_flag
-      t.string :vote_scope
-      t.integer :vote_weight
+      t.boolean :vote_flag, default: false
+      t.string :vote_scope, default: ''
+      t.integer :vote_weight, default: 0
 
       t.timestamps
     end
