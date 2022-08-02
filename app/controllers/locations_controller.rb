@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
   def index
-    @locations = current_user.locations.order('created_at DESC')
+    @location_history = current_user.location_history
   end
 end

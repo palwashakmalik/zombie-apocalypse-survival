@@ -52,6 +52,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+gem 'cocoon'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -67,10 +68,11 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
 end
-gem 'cocoon'
+gem 'nested_form'
+gem "jsonb_accessor"
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.5'
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

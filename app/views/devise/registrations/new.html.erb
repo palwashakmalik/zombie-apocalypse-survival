@@ -51,8 +51,8 @@
                 </fieldset>
                 <fieldset>
                   <legend>Location:</legend>
-                  <%= f.fields_for :locations do |locations_form| %>
-                    <%= render "location_fields", f: locations_form %>
+                  <%= f.fields_for :location_history do |locations_field| %>
+                    <%= render "location_fields", :f =>locations_field%>
                   <% end %>
                 </fieldset>
                 <div class="actions">

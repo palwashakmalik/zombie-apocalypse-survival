@@ -5,9 +5,9 @@
     <%= f.file_field :avatar %>
   </div>
   <fieldset>
-    <legend>New Location:</legend>
-    <%= f.fields_for 'locations_attributes[]', @location do |locations_form| %>
-      <%= render "location_fields", f: locations_form %>
+    <legend>Location:</legend>
+    <%= f.fields :location_history do |locations_field| %>
+      <%= render "location_fields", :f =>locations_field%>
     <% end %>
   </fieldset>
   <div class="actions">
