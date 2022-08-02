@@ -6,7 +6,7 @@
     <div class="card-body">
       <h5 class="card-title"><%=user.name%></h5>
       <h6 class="card-title">
-        <%if user.locationhistory%>
+        <%if user.location_history%>
           <%=location_array(user.location_history).last['longitude']%>
           <%=location_array(user.location_history).last['latitude']%>
         <%end%>
