@@ -35,11 +35,11 @@ The world, as we know it, has fallen into an apocalyptic scenario. A disease is 
 ### 1. Initial Setup
 --------------------
 Clone the project repo
-    $ git clone https://github.com/palwashamalik/zombie-apocalypse-survival.git
+    ``` $ git clone https://github.com/palwashamalik/zombie-apocalypse-survival.git```
 Get into the project directory
-    $ cd zombie-apocalypse-surviva
+    ```$ cd zombie-apocalypse-survival```
 Install gems and their dependencies
-    $ bundle install
+   ``` $ bundle install```
  ### 2. DB Setup
  -------------------------------
  * Setup Postgres
