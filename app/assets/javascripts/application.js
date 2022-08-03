@@ -19,3 +19,4 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require activestorage
+require("@rails/activestorage").start()

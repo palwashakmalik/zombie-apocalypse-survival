@@ -2,7 +2,9 @@
 <div class="homewrapper">
   <h1 class="home " > Zoombies Apocalypse</h1>
   <% if current_user %>
-      <%= cl_image_tag(image_helper(current_user.avatar) ,class: "rounded-circle avatar") %>
+    <% if current_user.avatar_attachment.present? %>
+      <%= image_tag(current_user.avatar ,class: "rounded-circle avatar") %>
+    <%end%>
     <%= link_to "Settings", edit_user_registration_path  %>
     <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
     <%= link_to "Locations", locations_path  %>

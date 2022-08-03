@@ -1,0 +1,11 @@
+development:
+  cloud_name: "palwashakhanmalik"
+  api_key: "467973776213517"
+  api_secret: "kzqEUU_yZan2ILr7siE1KLA_dSg"
+  secure: true
+
+production:
+  cloud_name: "palwashakhanmalik"
+  api_key: "467973776213517"
+  api_secret: "kzqEUU_yZan2ILr7siE1KLA_dSg"
+  secure:true
