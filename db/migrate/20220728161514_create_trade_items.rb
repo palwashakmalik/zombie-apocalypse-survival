@@ -6,7 +6,6 @@ class CreateTradeItems < ActiveRecord::Migration[5.2]
       t.integer :quantity, default: 0
       t.references :trade, foreign_key: true
       t.references :item, index: true, foreign_key: true
-
       t.timestamps
     end
   end
