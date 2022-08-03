@@ -10,8 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 2022_07_29_055540) do
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2022_07_27_120103) do
+=======
+ActiveRecord::Schema.define(version: 2022_07_29_055540) do
+>>>>>>> 684f789 (created models and views for trading)
+=======
+ActiveRecord::Schema.define(version: 2022_07_30_225857) do
+>>>>>>> 0ba4880 (Trade Functionality)
+=======
+ActiveRecord::Schema.define(version: 2022_07_29_054332) do
+>>>>>>> 9e8d14a (Deleted files and update migrations)
+>>>>>>> e88c642 (Deleted files and update migrations)
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +64,11 @@ ActiveRecord::Schema.define(version: 2022_07_29_055540) do
 
   create_table "trade_items", force: :cascade do |t|
     t.integer "quantity", default: 0
+<<<<<<< HEAD
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> e88c642 (Deleted files and update migrations)
     t.bigint "trade_id"
     t.bigint "item_id"
     t.datetime "created_at", null: false
