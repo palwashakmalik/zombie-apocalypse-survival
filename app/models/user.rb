@@ -1,21 +1,23 @@
 class User < ApplicationRecord
-  scope :infected, -> { where(infected: 1).count.to_f }
-  scope :not_infected, -> { where(infected: 0).count.to_f }
   devise :database_authenticatable, :registerable,
          :validatable, :rememberable
 
-  enum gender: { female: 1, male: 2, other: 3 }
-
-  has_one_attached :avatar
-  has_many :items, inverse_of: :user, dependent: :delete_all
   acts_as_votable
   acts_as_voter
+
+  has_one_attached :avatar
+
+  has_many :items, inverse_of: :user, dependent: :delete_all
+
+  scope :infected, -> { where(infected: 1).count.to_f }
+  scope :not_infected, -> { where(infected: 0).count.to_f }
+  scope :all_users_accept_current, ->(user_id) { where.not(id: user_id) }
+
+  enum gender: { female: 1, male: 2, other: 3 }
 
   accepts_nested_attributes_for :items, allow_destroy: true, reject_if: :all_blank
 
   validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-
-  scope :all_users_accept_current, ->(current_user) { where.not(id: current_user.id) }
 
   def with_item
     items.new if items.blank?
@@ -31,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def average_resources_values
-    total_count =  all_survivors_count
+    total_count = all_survivors_count
     Item.group(:itemname).count.values.map! { |n| (n/total_count).round(3) }
   end
 

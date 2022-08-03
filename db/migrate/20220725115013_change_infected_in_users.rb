@@ -4,6 +4,6 @@ class ChangeInfectedInUsers < ActiveRecord::Migration[5.2]
   end
 
   def down
-    change_column :users, :infected, :integer
+    change_column :users, :infected, :integer, using: 'infected::integer'
   end
 end
