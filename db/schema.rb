@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_30_225857) do
+ActiveRecord::Schema.define(version: 2022_07_29_054332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_07_30_225857) do
   end
 
   create_table "trade_items", force: :cascade do |t|
-    t.integer "quantity"
+    t.integer "quantity", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "trade_id"
@@ -56,11 +56,11 @@ ActiveRecord::Schema.define(version: 2022_07_30_225857) do
   end
 
   create_table "trades", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "sender_id"
-    t.bigint "receiver_id"
     t.index ["receiver_id"], name: "index_trades_on_receiver_id"
     t.index ["sender_id"], name: "index_trades_on_sender_id"
   end

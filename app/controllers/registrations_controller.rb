@@ -4,6 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     if @user.location_history
+      byebug
       locations = []
       locations.push(@user.location_history)
       locations.push(params[:location_history])
