@@ -36,10 +36,10 @@ The world, as we know it, has fallen into an apocalyptic scenario. A disease is 
 --------------------
 Clone the project repo
 -
-   ``` $ git clone https://github.com/palwashamalik/zombie-apocalypse-survival.git```
+    ``` $ git clone https://github.com/palwashamalik/zombie-apocalypse-survival.git```
 Get into the project directory
 -
-   ``` $ cd zombie-apocalypse-survival```
+    ``` $ cd zombie-apocalypse-survival```
 Install gems and their dependencies
 -
    ``` $ bundle install```
@@ -49,7 +49,7 @@ Install gems and their dependencies
     https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-macos
  * Create database
  -
-   ``` rails db:create ```
+    ``` rails db:create ```
  * Migrate database
  -
     ``` rails db:migrate ```
