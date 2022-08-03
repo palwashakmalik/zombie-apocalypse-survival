@@ -8,7 +8,7 @@ The world, as we know it, has fallen into an apocalyptic scenario. A disease is 
 4. Can view points lost because of an infected survivor.
 
 *Survivor*:
-1. Create Account, add Pictue and location to its profile
+1. Create Account, add Picture and location to its profile
 2. Can update location and view previous locations
 3. Can view other survivor inventory and send trade request
 4. Can cancel, accept, reject trade requests
