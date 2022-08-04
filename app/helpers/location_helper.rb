@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module LocationHelper
   def location_array(arr)
-    return arr if arr.kind_of?(Array)
+    return arr if arr.is_a?(Array)
 
-    return [arr]
+    [arr]
   end
 end

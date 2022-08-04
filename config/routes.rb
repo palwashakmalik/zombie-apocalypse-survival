@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  resources :locations
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'home#index'
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
     resources :trade_items
     resources :items
   end
+  resources :locations
   resources :trades, only: :update
 end

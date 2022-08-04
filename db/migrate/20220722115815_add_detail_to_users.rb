@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
 class AddDetailToUsers < ActiveRecord::Migration[5.2]
   def change
-    add_column :users, :name, :string, presence: true, default: ''
-    add_column :users, :age, :integer, default: 18
-    add_column :users, :gender, :integer, default: 1
-    add_column :users, :infected, :boolean, default: false
+    change_table :users, bulk: true do |t|
+      t.string :name, presence: true, default: ''
+      t.integer :age, default: 18
+      t.integer :gender, default: 1
+      t.boolean :infected, default: false
+      t.jsonb :location_history
+    end
   end
 end
