@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       @user.save
       flash[:alert] = "Trade couldn't be save" unless @user.save
     end
+
     redirect_to root_path
   end
 
