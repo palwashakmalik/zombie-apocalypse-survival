@@ -3,18 +3,22 @@
 class TradesController < ApplicationController
   before_action :set_user, :trade_params, except: :update
   before_action :set_trade, only: :update
-
+  before_action :authenticate_user!
   def index
     @trades = Trade.sender_receiver_trades(current_user.id)
+    authorize @trades
+
   end
 
   def new
     @sender_items = get_sender_items(current_user)
     @receiver_items = get_receiver_items
-     @trade = Trade.new(receiver_id: @user.id, sender_id: current_user.id)
+    @trade = Trade.new(receiver_id: @user.id, sender_id: current_user.id)
+    authorize @trade
   end
 
   def update
+    authorize @trade
     @trade.status = params[:status].to_i
     @trade.accept if @trade.accepted?
     @trade.save
@@ -30,6 +34,7 @@ class TradesController < ApplicationController
     if receiver_total == sender_total
       @trade = Trade.create(status: 1, receiver_id: params[:trade][:receiver_id],
                             sender_id: params[:trade][:sender_id], trade_items_attributes: trade_items.to_h)
+      authorize @trade
       redirect_to user_trades_path(current_user)
     end
   end
@@ -60,6 +65,7 @@ class TradesController < ApplicationController
 
   def set_trade
     @trade = Trade.find(params[:id])
+    authorize @trade
   end
 
   def trade_params
