@@ -10,19 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_07_27_120103) do
-=======
-ActiveRecord::Schema.define(version: 2022_07_29_055540) do
->>>>>>> 684f789 (created models and views for trading)
-=======
-ActiveRecord::Schema.define(version: 2022_07_30_225857) do
->>>>>>> 0ba4880 (Trade Functionality)
-=======
-ActiveRecord::Schema.define(version: 2022_07_29_054332) do
->>>>>>> 9e8d14a (Deleted files and update migrations)
+ActiveRecord::Schema.define(version: 2022_07_28_161514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,10 +47,10 @@ ActiveRecord::Schema.define(version: 2022_07_29_054332) do
 
   create_table "trade_items", force: :cascade do |t|
     t.integer "quantity", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "trade_id"
     t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_trade_items_on_item_id"
     t.index ["trade_id"], name: "index_trade_items_on_trade_id"
   end
@@ -111,8 +99,6 @@ ActiveRecord::Schema.define(version: 2022_07_29_054332) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
-  add_foreign_key "trade_items", "items"
-  add_foreign_key "trade_items", "trades"
   add_foreign_key "trades", "users", column: "receiver_id"
   add_foreign_key "trades", "users", column: "sender_id"
 end

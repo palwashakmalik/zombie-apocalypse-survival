@@ -5,13 +5,13 @@ class TradesController < ApplicationController
   before_action :set_trade, only: :update
 
   def index
-    @trades = Trade.where('sender_id = ? OR receiver_id = ?', current_user.id, current_user.id)
+    @trades = Trade.sender_receiver_trades(current_user.id)
   end
 
   def new
-    @sender_items = current_user.items
-    @receiver_items = @user.items
-    @trade = Trade.new(receiver_id: @user.id, sender_id: current_user.id)
+    @sender_items = get_sender_items(current_user)
+    @receiver_items = get_receiver_items
+     @trade = Trade.new(receiver_id: @user.id, sender_id: current_user.id)
   end
 
   def update
@@ -44,5 +44,15 @@ class TradesController < ApplicationController
 
   def trade_params
     params.permit(:id, :user_id)
+  end
+
+  private
+
+  def get_sender_items(current_user)
+    @sender_items = current_user.items
+  end
+
+  def get_receiver_items
+    @receiver_items = @user.items
   end
 end

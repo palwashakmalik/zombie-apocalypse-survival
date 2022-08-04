@@ -7,6 +7,8 @@ class Trade < ApplicationRecord
 
   accepts_nested_attributes_for :trade_items, allow_destroy: true, reject_if: :all_blank
 
+  scope :sender_receiver_trades, -> (user_id) { where('sender_id = ? OR receiver_id = ?', user_id, user_id) }
+
   enum status: { pending: 1, rejected: 2, cancelled: 3, accepted: 4 }
 
   def accept
