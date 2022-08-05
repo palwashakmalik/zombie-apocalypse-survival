@@ -1,4 +1,4 @@
-  <%= video_tag "zoombie.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+  <%= cl_video_tag "zoombie", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
 <div class="homewrapper ">
   <% if current_user %>
     <% if current_user.admin %>
