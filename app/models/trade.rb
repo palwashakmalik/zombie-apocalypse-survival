@@ -16,11 +16,7 @@ class Trade < ApplicationRecord
   def accept
     trade_items.each do |trade_item|
       item = Item.find_by(id: trade_item.item_id)
-      if item.user_id == receiver_id
-        item.update(user_id: sender_id)
-      else
-        item.update(user_id: receiver_id)
-      end
+      item.user_id == receiver_id ? item.update(user_id: sender_id) : item.update(user_id: receiver_id)
     end
     accepted!
   end

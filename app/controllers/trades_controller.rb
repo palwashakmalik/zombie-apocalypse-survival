@@ -34,7 +34,7 @@ class TradesController < ApplicationController
     return unless trade_items
 
     @trade = Trade.create(status: 1, receiver_id: trade_create_params[:receiver_id],
-                            sender_id: trade_create_params[:sender_id], trade_items_attributes: trade_items.to_h)
+                          sender_id: trade_create_params[:sender_id], trade_items_attributes: trade_items.to_h)
     authorize @trade
     redirect_to user_trades_path(current_user)
   end
