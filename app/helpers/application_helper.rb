@@ -1,10 +1,6 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  def location_array(arr)
-    return arr if arr.is_a?(Array)
-
-    [arr]
-  end
-
   def items_filter(items)
     JSON.parse(items.to_json).to_a.filter do |item|
       item if item[1]['item_id'].present? && item[1]['quantity'].to_i.nonzero?
@@ -21,14 +17,10 @@ module ApplicationHelper
   end
 
   def check_role(trade, current_user)
-    return true if current_user.id == trade.sender_id
-
-    false
+    current_user.id == trade.sender_id
   end
 
   def check_status(trade)
-   return true if trade.pending? && !trade.accepted?
-
-   false
+    trade.pending? && !trade.accepted?
   end
 end

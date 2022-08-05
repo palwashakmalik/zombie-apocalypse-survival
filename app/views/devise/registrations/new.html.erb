@@ -1,4 +1,4 @@
-<%= video_tag "zoombie.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+<%= cl_video_tag "zoombie", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -52,7 +52,7 @@
                 <fieldset>
                   <legend>Location:</legend>
                   <%= f.fields_for :location_history do |locations_field| %>
-                    <%= render "location_fields", :f =>locations_field%>
+                    <%= render "location_fields", :f =>locations_field %>
                   <% end %>
                 </fieldset>
                 <div class="actions">

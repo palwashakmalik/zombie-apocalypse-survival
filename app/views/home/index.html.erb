@@ -1,16 +1,16 @@
-  <%= video_tag "zoombie.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+  <%= cl_video_tag "zoombie", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
 <div class="homewrapper ">
   <% if current_user %>
-    <%if current_user.admin %>
+    <% if current_user.admin %>
     <%= render "admin"  %>
-    <%else%>
+    <% else %>
       <div class=" d-flex flex-wrap " ><%= render @users%></div>
-    <%end%>
-  <%else%>
+    <% end %>
+  <% else %>
     <div >
       <h1 class="home" >Zoombies Apocalypse</h1>
       <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-secondary"  %>
       <%= link_to "Sign In", new_user_session_path, :class => "btn btn-warning" %>
     </div>
-  <%end %>
+  <% end %>
 </div>

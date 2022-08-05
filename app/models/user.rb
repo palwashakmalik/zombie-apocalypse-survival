@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :validatable, :rememberable
@@ -25,16 +27,15 @@ class User < ApplicationRecord
   end
 
   def infected_percentage
-    percentage = percentage(infected_survivor_count / all_survivors_count)
+    percentage(User.infected / User.all.count.to_f)
   end
 
   def non_infected_percentage
-    percentage(survivor_count / all_survivors_count)
+    percentage(User.not_infected / User.all.count.to_f)
   end
 
   def average_resources_values
-    total_count = all_survivors_count
-    Item.group(:item_name).count.values.map! { |n| (n/total_count).round(3) }
+    Item.group(:item_name).count.values.map! { |n| (n / User.all.count.to_f).round(3) }
   end
 
   def average_resources_keys
@@ -47,17 +48,5 @@ class User < ApplicationRecord
 
   def percentage(number)
     number.round(4) * 100
-  end
-
-  def survivor_count
-    User.not_infected
-  end
-
-  def infected_survivor_count
-    User.infected
-  end
-
-  def all_survivors_count
-    User.all.count.to_f
   end
 end
