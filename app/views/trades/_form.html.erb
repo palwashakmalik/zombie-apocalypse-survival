@@ -1,0 +1,63 @@
+<%= nested_form_for([@user, @trade]) do |f| %>
+  <div class="row">
+    <div class="  col ">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">item</th>
+            <th scope="col">points</th>
+            <th scope="col">quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sender_items.each do |item| %>
+            <tr>
+              <%= f.fields_for :sender_items, nil, index: item.id  do |f| %>
+                <td> <%= f.check_box :item_id, { checked: false }, item.id, nil  %> </td>
+                <td> <%= item.item_name %> </td>
+                <td> <%= item.points %> </td>
+                <td> <%= f.text_field :quantity %> </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">item</th>
+            <th scope="col">points</th>
+            <th scope="col">quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @receiver_items.each do |item| %>
+            <tr>
+              <%= f.fields_for :receiver_items, nil, index: item.id  do |f| %>
+                <td> <%= f.check_box :item_id, { checked: false }, item.id, nil  %> </td>
+                <td> <%= item.item_name %> </td>
+                <td> <%= item.points %> </td>
+                <td> <%= f.number_field :quantity %> </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= f.hidden_field  :receiver_id%>
+  <%= f.hidden_field  :sender_id%>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="actions  ">
+          <%= f.submit "Proceed" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

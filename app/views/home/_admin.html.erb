@@ -1,0 +1,91 @@
+<h1 class="text-white">Admin</h1>
+<%= link_to "Log Out", destroy_user_session_path, method: :delete, class: " text-white"  %>
+<br/>
+<br/>
+<div class="row">
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <p class="text-uppercase small mb-2">
+          <strong>Points lost because of an infected survivor.</strong>
+        </p>
+        <h5 class="mb-0">
+          <strong><%= current_user.points %></strong><small class="text-success ms-2">
+            <i class="fas fa-arrow-down fa-sm pe-1"></i>%</small>
+        </h5>
+        <hr/>
+      </div>
+    </div>
+    <!-- Card -->
+  </div>
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <p class="text-uppercase small mb-2">
+          <strong>Percentage of infected survivors.</strong>
+        </p>
+        <h5 class="mb-0">
+          <strong><%= current_user.infected_percentage %></strong>
+          <small class="text-success ms-2">
+            <i class="fas fa-arrow-down fa-sm pe-1"></i>%</small>
+        </h5>
+        <hr/>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <p class="text-uppercase small mb-2">
+          <strong>Percentage of non infected survivors</strong>
+        </p>
+        <h5 class="mb-0">
+          <strong><%= current_user.non_infected_percentage %></strong>
+          <small class="text-success ms-2">
+            <i class="fas fa-arrow-up fa-sm pe-1"></i>%</small>
+        </h5>
+        <hr/>
+      </div>
+    </div>
+    <!-- Card -->
+  </div>
+</div>
+<div class="row">
+  <div class="card">
+    <div class="card-body">
+      <p class="text-uppercase small mb-2">
+        <strong>The average amount of each kind of resource by the survivor </strong>
+      </p>
+      <h5 class="mb-0">
+        <div class="row">
+          <div class="table-responsive col-md-6">
+            <table>
+              <p class="text-uppercase small mb-2">
+                <strong>Item Names </strong>
+              </p>
+              <% current_user.average_resources_keys.each do |item|%>
+                <tr>
+                  <th><%= item%></th>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+          <div class="table-responsive col-md-6">
+            <table>
+              <p class="text-uppercase small mb-2">
+                <strong>Values </strong>
+              </p>
+              <% current_user.average_resources_values.each do |item|%>
+                <tr>
+                  <th><%= item%></th>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </h5>
+      <hr/>
+    </div>
+  </div>
+  <!-- Card -->
+</div>

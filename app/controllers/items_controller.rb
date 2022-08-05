@@ -1,5 +1,13 @@
 class ItemsController < ApplicationController
+  before_action :set_user, only: :index
+
   def index
-    @items = current_user.items
+    @items = @user.items
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 end
