@@ -3,11 +3,9 @@
 class TradesController < ApplicationController
   before_action :set_user, :trade_params, except: :update
   before_action :set_trade, only: :update
-  before_action :authenticate_user!
   def index
     @trades = Trade.sender_receiver_trades(current_user.id)
     authorize @trades
-
   end
 
   def new

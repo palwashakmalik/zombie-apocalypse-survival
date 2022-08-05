@@ -1,6 +1,7 @@
-class ItemPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class ItemPolicy < ApplicationPolicy
   def index?
-    !user.admin?
+    return true unless user.admin?
   end
 end

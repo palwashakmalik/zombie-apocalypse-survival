@@ -2,7 +2,6 @@
 
 class UsersController < ApplicationController
   before_action :find_user
-  before_action :authenticate_user!
 
   def upvote
     authorize current_user

@@ -1,24 +1,31 @@
-class TradePolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class TradePolicy < ApplicationPolicy
   def index?
-    !user.admin?
+    return true unless user.admin?
   end
+
   def new?
-    !user.admin?
+    return true unless user.admin?
   end
+
   def update?
-    !user.admin?
+    return true unless user.admin?
   end
+
   def create?
-    !user.admin?
+    return true unless user.admin?
   end
+
   def get_sender_items?
-    !user.admin?
+    return true unless user.admin?
   end
+
   def get_receiver_items?
-    !user.admin?
+    return true unless user.admin?
   end
+
   def set_trade?
-    !user.admin?
+    return true unless user.admin?
   end
 end
