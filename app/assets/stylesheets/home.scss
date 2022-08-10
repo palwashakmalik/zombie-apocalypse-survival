@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.home_video {
+.home-video {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -18,17 +18,17 @@ h1.home {
 }
 
 .avatar {
-  height:40px;
-  width:auto;
+  height: 40px;
+  width: auto;
 }
 
-.homewrapper {
-  height:100vh;
-  margin:auto;
-  width:80%;
+.home-wrapper {
+  height: 100vh;
+  margin: auto;
+  width: 80%;
   padding: 30% 0;
 }
 
- .card {
+.card {
   margin-bottom: 10px;
 }

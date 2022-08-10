@@ -10,13 +10,13 @@ module ApplicationHelper
   def points_calculator(items)
     points = 0
     items.each do |item|
-      points += Item.find(item[1]['item_id'].to_i).points * item[1]['quantity'].to_i
+      points += Item.find_by(id: item[1]['item_id'].to_i).points * item[1]['quantity'].to_i
     end
 
     points
   end
 
-  def check_role(trade, current_user)
+  def sender?(trade, current_user)
     current_user.id == trade.sender_id
   end
 

@@ -2,14 +2,18 @@
 
 class UserPolicy < ApplicationPolicy
   def upvote?
-    return true unless user.admin?
+    !user.admin?
   end
 
   def show?
-    return true unless user.admin?
+    !user.admin?
   end
 
   def downvote?
-    return true unless user.admin?
+    !user.admin?
+  end
+
+  def access?
+    !user.admin?
   end
 end
