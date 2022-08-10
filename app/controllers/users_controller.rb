@@ -9,14 +9,14 @@ class UsersController < ApplicationController
     if @user.get_upvotes.size == FLAG_LIMIT
       @user.infected = true
       @user.save
-      flash[:alert] = "Trade couldn't be save" unless @user.save
+      flash[:alert] = "flag couldn't be save" unless @user.save
     end
     redirect_to root_path
   end
 
   def show
-    @items = @user.items
     authorize @user
+    @items = @user.items
   end
 
   def downvote
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(id: user_params[:id])
+    raise ActiveRecord::RecordNotFound if @user.nil?
   end
 
   def user_params

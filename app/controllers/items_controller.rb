@@ -11,5 +11,7 @@ class ItemsController < ApplicationController
 
   def set_user
     @user = User.find_by(id: params[:user_id])
+    authorize :item, :access?
+    raise ActiveRecord::RecordNotFound if @user.nil?
   end
 end

@@ -29,22 +29,29 @@ class TradesController < ApplicationController
   end
 
   def create
+    authorize :trade
     trade_items = trade_initializer
 
     return unless trade_items
 
-    @trade = Trade.create(status: 1, receiver_id: trade_create_params[:receiver_id],
-                          sender_id: trade_create_params[:sender_id], trade_items_attributes: trade_items.to_h)
-    authorize @trade
+    @trade = Trade.new.tap do |t|
+      t.receiver_id = trade_create_params[:receiver_id]
+      t.sender_id =  trade_create_params[:sender_id]
+      t.trade_items_attributes = trade_items.to_h
+      t.save
+    end
     redirect_to user_trades_path(current_user)
   end
 
   def set_user
     @user = User.find_by(id: params[:user_id])
+    raise ActiveRecord::RecordNotFound if @user.nil?
   end
 
   def set_trade
     @trade = Trade.find_by(id: params[:id])
+    raise ActiveRecord::RecordNotFound if @trade.nil?
+
     authorize @trade
   end
 

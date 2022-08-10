@@ -1,7 +1,7 @@
-  <%= cl_video_tag "zoombie", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
-<div class="homewrapper ">
+  <%= cl_video_tag "zoombie", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home-video" %>
+<div class="home-wrapper ">
   <% if current_user %>
-    <% if current_user.admin %>
+    <% if current_user.admin? %>
     <%= render "admin"  %>
     <% else %>
       <div class=" d-flex flex-wrap " ><%= render @users%></div>
