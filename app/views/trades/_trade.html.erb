@@ -5,7 +5,7 @@
     <td> <%= trade.status%> </td>
     <td><%= render trade.trade_items%></td>
     <td>
-      <% if check_role(trade, current_user) %>
+      <% if sender?(trade, current_user) %>
         <% if trade.pending? %>
           <div class="container">
             <div class="row">

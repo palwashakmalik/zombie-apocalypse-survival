@@ -3,7 +3,7 @@
 class CreateTrades < ActiveRecord::Migration[5.2]
   def change
     create_table :trades do |t|
-      t.integer :status, default: 0
+      t.integer :status, default: 1
       t.bigint :sender_id, null: false
       t.bigint :receiver_id, null: false
       t.index :sender_id

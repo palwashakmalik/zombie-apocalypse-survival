@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_07_28_161514) do
   end
 
   create_table "trades", force: :cascade do |t|
-    t.integer "status", default: 0
+    t.integer "status", default: 1
     t.bigint "sender_id", null: false
     t.bigint "receiver_id", null: false
     t.datetime "created_at", null: false

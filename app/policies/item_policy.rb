@@ -2,6 +2,10 @@
 
 class ItemPolicy < ApplicationPolicy
   def index?
-    return true unless user.admin?
+    !user.admin?
+  end
+
+  def access?
+    !user.admin?
   end
 end

@@ -14,8 +14,7 @@ class Trade < ApplicationRecord
   enum status: { pending: 1, rejected: 2, cancelled: 3, accepted: 4 }
 
   def accept
-    trade_items.each do |trade_item|
-      item = Item.find_by(id: trade_item.item_id)
+    items.each do |item|
       item.user_id == receiver_id ? item.update(user_id: sender_id) : item.update(user_id: receiver_id)
     end
     accepted!
