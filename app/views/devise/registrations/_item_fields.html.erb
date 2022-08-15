@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  <%= f.hidden_field :_destroy %>
+  <div>
+    <%= f.label :item_name%><br/>
+    <%= f.text_field :item_name%><br/>
+  </div>
+  <div>
+    <%= f.label :points %><br/>
+    <%= f.number_field :points%>
+  </div>
+  <div>
+    <%= link_to_remove_association "Remove", f  %>
+  </div>
+</div>

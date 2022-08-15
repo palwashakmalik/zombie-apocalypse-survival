@@ -1,0 +1,41 @@
+<tbody>
+  <tr scope="row">
+    <td> <%= trade.sender.name %> </td>
+    <td> <%= trade.receiver.name%> </td>
+    <td> <%= trade.status%> </td>
+    <td><%= render trade.trade_items%></td>
+    <td>
+      <% if sender?(trade, current_user) %>
+        <% if trade.pending? %>
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "Cancel" , trade_path(trade, status: 3), method: :patch, :class => "btn btn-secondary  "  %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <% if check_status(trade)%>
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "Reject",trade_path(trade, status: 2), method: :patch, :class => "btn btn-secondary  "  %>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "Accept", trade_path(trade, status: 4), method: :patch, :class => "btn btn-secondary  "  %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+  <tr class="spacer">
+    <td colspan="100"></td>
+  </tr>
+</tbody>

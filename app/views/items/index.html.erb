@@ -1,0 +1,25 @@
+<div class="content">
+  <div class="container">
+    <h2 class="mb-5 text-center">Inventory</h2>
+    <div class="table-responsive custom-table-responsive">
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Points</th>
+          </tr>
+        </thead>
+        <%= render @items %>
+      </table>
+    </div>
+  </div>
+</div>
+<% if !@user.eql?(current_user) %>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <%= link_to "Trade",new_user_trade_path(@user), :class => "btn btn-secondary  "  %>
+      </div>
+    </div>
+  </div>
+<% end %>

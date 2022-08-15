@@ -1,0 +1,30 @@
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h2>Edit <%= resource_name.to_s.humanize %></h2>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <div class="field">
+                  <%= f.label :avatar %><br />
+                  <%= f.file_field :avatar, direct_upload: true %>
+                </div>
+                <fieldset>
+                  <legend>Location:</legend>
+                  <%= f.fields :location_history do |locations_field| %>
+                    <%= render "location_fields", :f =>locations_field %>
+                  <% end %>
+                </fieldset>
+                <div class="actions">
+                  <%= f.submit "Update" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
