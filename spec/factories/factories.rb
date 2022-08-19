@@ -30,7 +30,17 @@ FactoryBot.define do
 
   factory :trade_item do
     quantity { Faker::Number.non_zero_digit }
-    item
+    item { FactoryBot.create(:item, user: user, points: 10) }
     trade
+  end
+
+  factory :vote do
+    votable_type { Faker::Number.non_zero_digit }
+    votable_id {}
+    voter_type { Faker::Number.non_zero_digit }
+    voter_id {}
+    vote_flag { false }
+    vote_scope { Faker::Number.non_zero_digit }
+    vote_weight { Faker::Number.non_zero_digit }
   end
 end

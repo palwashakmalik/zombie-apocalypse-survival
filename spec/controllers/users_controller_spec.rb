@@ -7,6 +7,7 @@ require 'faker'
 RSpec.describe 'Users', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:current_user) { FactoryBot.create(:user) }
+  let(:vote) { FactoryBot.create(:vote) }
 
   it 'Sign In Ok' do
     sign_in(user)
@@ -20,6 +21,13 @@ RSpec.describe 'Users', type: :request do
         sign_in(current_user)
         put like_user_path(user, current_user), params: { id: user.id }
         expect(response).to redirect_to root_path
+      end
+
+      it 'increment the votes table when flags the survivor' do
+        sign_in(current_user)
+        expect do
+          put like_user_path(user, current_user), params: { id: user.id }
+        end.to change(current_user.votes, :count).by(1)
       end
     end
 
@@ -36,6 +44,13 @@ RSpec.describe 'Users', type: :request do
         sign_in(current_user)
         put like_user_path(user, current_user), params: { id: user.id }
         expect(flash[:alert]).to match("flag couldn't be save")
+      end
+
+      it 'doesn\'t increment the votes table when flags the survivor' do
+        sign_in(current_user)
+        expect do
+          put like_user_path(user, current_user), params: { id: user.id }
+        end.to change(current_user.votes, :count).by(0)
       end
     end
   end
