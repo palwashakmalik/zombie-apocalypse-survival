@@ -15,4 +15,12 @@ Rails.application.routes.draw do
   end
   resources :locations
   resources :trades, only: :update
+
+  namespace :api do
+    namespace :v1 do
+      resources :users do
+        resources :items
+      end
+    end
+  end
 end

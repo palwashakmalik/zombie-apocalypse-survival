@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
+  #before_action :authenticate_user!
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:name, :email, :password, :age, :gender, :infected, :avatar, location_history:
