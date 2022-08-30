@@ -6,7 +6,7 @@ module Api
       before_action :set_user, only: :index
       def index
         items = @user.items
-        render json: ItemSerializer.new(items).to_serialized_json
+        render json: items
       end
 
       private
