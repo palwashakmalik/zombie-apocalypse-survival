@@ -4,9 +4,9 @@ module Api
   module V1
     class UsersController < ApplicationController
       def index
-        @users = User.all
+        users = User.all
 
-        render json: @users
+        render json: UserSerializer.new(users).to_serialized_json
       end
     end
   end

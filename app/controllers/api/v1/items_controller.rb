@@ -5,8 +5,8 @@ module Api
     class ItemsController < ApplicationController
       before_action :set_user, only: :index
       def index
-        @items = @user.items
-        render json: @items
+        items = @user.items
+        render json: ItemSerializer.new(items).to_serialized_json
       end
 
       private
