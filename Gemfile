@@ -17,13 +17,14 @@ gem 'pg'
 gem 'popper_js', '~> 2.11.5'
 gem 'puma', '~> 3.11'
 gem 'pundit'
+gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 gem 'rails_admin'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
-
+gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do

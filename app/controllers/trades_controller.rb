@@ -34,13 +34,17 @@ class TradesController < ApplicationController
 
     return unless trade_items
 
-    @trade = Trade.new.tap do |t|
+    @trade = create_trade(trade_items)
+    redirect_to user_trades_path(current_user)
+  end
+
+  def create_trade(trade_items)
+    Trade.new.tap do |t|
       t.receiver_id = trade_create_params[:receiver_id]
       t.sender_id =  trade_create_params[:sender_id]
       t.trade_items_attributes = trade_items.to_h
       t.save
     end
-    redirect_to user_trades_path(current_user)
   end
 
   def set_user
