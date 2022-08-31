@@ -11,11 +11,19 @@ Bundler.require(*Rails.groups)
 module ZombieApocalypseSurvival
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.before_configuration do
+      env_file = File.join('config/local_env.yml')
+      if File.exist?(env_file)
+        YAML.safe_load(File.open(env_file)).each do |key, value|
+          ENV[key.to_s] = value
+        end
+      end
+    end
     config.load_defaults 5.2
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3000'
-        resource '*', headers: :any, methods: %i[get post put delete options]
+        origins ENV['REACT_API_ORIGN']
+        resource '*', headers: :any, methods: :get
       end
     end
     # Settings in config/environments/* take precedence over those specified here.
